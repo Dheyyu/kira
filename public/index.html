@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KIRA</title>
+  <link rel="stylesheet" href="/style.css">
+  <script type="importmap">
+    { "imports": { "three": "/vendor/three/build/three.module.js", "three/addons/": "/vendor/three/examples/jsm/" } }
+  </script>
+</head>
+<body>
+  <header id="topbar">
+    <div class="brand">KIRA <span>office</span></div>
+    <div id="model-pills"></div>
+    <div id="spend"></div>
+    <div id="conn" class="conn">connecting…</div>
+  </header>
+
+  <main>
+    <section id="scene">
+      <div id="overlay"></div>
+    </section>
+
+    <aside id="panel">
+      <nav class="tabs">
+        <button data-tab="tasks" class="active">Tasks</button>
+        <button data-tab="lab">Skills Lab</button>
+        <button data-tab="models">Models</button>
+        <button data-tab="feed">Feed</button>
+      </nav>
+
+      <div class="tab" id="tab-tasks">
+        <form id="composer">
+          <textarea id="task-text" rows="3" placeholder="Give the team a task… e.g. “Draft a follow-up email to a lead who went quiet”"></textarea>
+          <div class="row">
+            <select id="task-agent" title="Agent"><option value="">Auto-assign</option></select>
+            <select id="task-model" title="Model">
+              <option value="">Auto model (cheapest fit)</option>
+              <option value="ollama">Force Ollama</option>
+              <option value="mistral">Force Mistral</option>
+              <option value="claude">Force Claude</option>
+            </select>
+            <button type="submit">Send</button>
+          </div>
+          <div id="composer-error" class="error" hidden></div>
+        </form>
+        <div id="task-list"></div>
+      </div>
+
+      <div class="tab" id="tab-lab" hidden></div>
+      <div class="tab" id="tab-models" hidden></div>
+      <div class="tab" id="tab-feed" hidden></div>
+    </aside>
+  </main>
+
+  <script type="module" src="/main.js"></script>
+</body>
+</html>

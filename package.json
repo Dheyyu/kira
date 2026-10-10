@@ -1,15 +1,19 @@
 {
-  "name": "jarvis-office",
+  "name": "kira-office",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "3D dashboard of AI agents working, wandering, and training, with cost-aware routing across Ollama, Mistral, and Claude",
+  "type": "module",
+  "main": "server/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "test": "node --test test/"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.133.0",
     "three": "^0.186.1"
   }
 }
